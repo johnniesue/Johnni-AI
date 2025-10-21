@@ -1,1 +1,43 @@
-{"message":"Internal Server Error"}
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: #f7f9fc;
+  color: #0f172a;
+}
+.container {
+  max-width: 960px;
+  margin: 48px auto;
+  padding: 24px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(2, 8, 20, 0.08);
+}
+h1 { margin: 0 0 12px; }
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #e8f1ff;
+  color: #0b4dab;
+  font-weight: 600;
+  font-size: 12px;
+}
+.actions { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; }
+.button {
+  border: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #0b4dab;
+  color: white;
+  cursor: pointer;
+}
+.button.secondary { background: #e2e8f0; color: #0f172a; }
+pre {
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 12px;
+  border-radius: 10px;
+  overflow: auto;
+}
