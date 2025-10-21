@@ -16,7 +16,7 @@ jobs:
           script: |
             const title = (context.payload.issue.title || '').toLowerCase();
             const body  = (context.payload.issue.body  || '').toLowerCase();
-            const text  = title + ' ' + body;
+            const text  = `${title} ${body}`;
 
             const labels = [];
             if (/\bbug|error|broken|fails?\b/.test(text)) labels.push('bug');
@@ -35,12 +35,34 @@ jobs:
 
             let msg = "Thanks for opening this! We’ll jump on it.\n\n";
             if (labels.includes('bug')) {
-              msg += "**Bug checklist**\\n- Steps to reproduce\\n- Expected vs actual\\n- URL/screen (if any)\\n- Browser/device\\n- Console errors (copy/paste)\\n\\n";
+              msg += [
+                "**Bug checklist**",
+                "- Steps to reproduce",
+                "- Expected vs actual",
+                "- URL/screen (if any)",
+                "- Browser/device",
+                "- Console errors (copy/paste)",
+                "",
+              ].join("\n");
             } else if (labels.includes('feature')) {
-              msg += "**Feature checklist**\\n- Problem this solves\\n- Desired outcome\\n- Must-have vs nice-to-have\\n- Screens/mockups (if any)\\n\\n";
+              msg += [
+                "**Feature checklist**",
+                "- Problem this solves",
+                "- Desired outcome",
+                "- Must-have vs nice-to-have",
+                "- Screens/mockups (if any)",
+                "",
+              ].join("\n");
             } else if (labels.includes('question')) {
-              msg += "**Question guide**\\n- Where you got stuck\\n- What you tried\\n- Goal/outcome\\n\\n";
+              msg += [
+                "**Question guide**",
+                "- Where you got stuck",
+                "- What you tried",
+                "- Goal/outcome",
+                "",
+              ].join("\n");
             }
+
             msg += "_If this touches scheduling, quotes, or emails, include **customer initials only** and whether it’s **Prod** or **Test**._";
 
             await github.rest.issues.createComment({
