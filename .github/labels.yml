@@ -1,0 +1,15 @@
+- name: bug
+  color: "d73a4a"
+  description: Something isn’t working
+- name: feature
+  color: "a2eeef"
+  description: New functionality
+- name: question
+  color: "d4c5f9"
+  description: Needs clarification
+- name: priority: high
+  color: "b60205"
+  description: Needs quick attention
+- name: good first issue
+  color: "7057ff"
+  description: Good for first-timers
